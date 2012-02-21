@@ -1,0 +1,32 @@
+def compile_project(project_file)	
+	args = "-B -Q #{project_file}";
+	result = %x[dcc32 #{args}]
+	if result =~ /Error/
+		puts result	
+	else
+		project_name = project_file.gsub(/\..*/, "")
+		puts "built #{project_name}"
+	end
+end	
+
+file 'ZuneKeys.exe' => ['ZuneKeys.dpr', FileList['*.pas']] do
+	compile_project "ZuneKeys.dpr"
+end	
+
+task :default => ['ZuneKeys.exe'] do		
+end
+
+desc "Remove temporary files created during compile"
+task :clean do	
+	if File.exists?('ZuneKeys.exe') 
+		rm "ZuneKeys.exe"
+	end
+	
+	rm FileList['*.dcu']
+	
+	puts "clean"
+end
+
+task :release => [:clean, :default] do
+	puts "release project"
+end

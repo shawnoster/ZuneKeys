@@ -1,0 +1,30 @@
+#include "ZuneKeys.inc"
+
+IDI_MAIN ICON    DISCARDABLE     "main.ico"
+IDI_TRAY ICON    DISCARDABLE     "tray.ico"
+
+1 VERSIONINFO
+FILEVERSION     1,0,0,1
+PRODUCTVERSION  1,0,0,1
+FILEOS          VOS__WINDOWS32
+FILETYPE        VFT_APP
+BEGIN
+   BLOCK "StringFileInfo"
+   BEGIN
+      BLOCK "040904E4"
+      BEGIN
+         VALUE "FileDescription", "Global Hotkey support for Zune\0"
+         VALUE "LegalCopyright",  "Copyright \251 Shawn Oster 2007\0"
+         VALUE "Comments",        "Visit http://www.enginefour.com for updates.\0"
+         VALUE "CompanyName",     "EngineFour\0"
+         VALUE "FileVersion",     "1.0\0"
+         VALUE "LegalTrademarks", "Zune\256 is a registered trademark of Microsoft Corporation. Windows(tm) is a trademark of Microsoft Corporation\0"
+         VALUE "ProductName",     "ZuneKeys\0"
+         VALUE "ProductVersion",  "1.0\0"
+      END
+   END
+   BLOCK "VarFileInfo"
+   BEGIN
+      VALUE "Translation", 0x409, 1252
+   END
+END
